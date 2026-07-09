@@ -1,6 +1,12 @@
 import streamlit as st
 
-from .workflow import run_content_workflow
+try:
+    from .workflow import run_content_workflow
+except Exception as exc:  # pragma: no cover - protects deployment startup
+    run_content_workflow = None
+    WORKFLOW_IMPORT_ERROR = exc
+else:
+    WORKFLOW_IMPORT_ERROR = None
 
 
 def main() -> None:
@@ -24,6 +30,12 @@ def main() -> None:
             height=150,
         )
         run_button = st.button("Generate & Refine Content", use_container_width=True)
+
+    if run_content_workflow is None:
+        st.error("The workflow module could not be loaded during startup.")
+        st.caption("This usually means a dependency failed to import in the deployment environment.")
+        st.code(str(WORKFLOW_IMPORT_ERROR))
+        return
 
     if run_button:
         if not topic.strip():

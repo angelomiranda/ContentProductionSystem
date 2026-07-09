@@ -3,7 +3,14 @@ import re
 from typing import Any, Callable, TypedDict
 
 import streamlit as st
-from langchain_openai import ChatOpenAI
+
+try:
+    from langchain_openai import ChatOpenAI
+except Exception as exc:  # pragma: no cover - protects deployment startup
+    ChatOpenAI = None
+    LLM_IMPORT_ERROR = exc
+else:
+    LLM_IMPORT_ERROR = None
 
 from .config import DEFAULT_MAX_ATTEMPTS, DEFAULT_MIN_SCORE, DEFAULT_MODEL, get_openai_api_key
 
@@ -87,10 +94,10 @@ def _build_fallback_grading(content: str) -> tuple[int, str]:
     return score, feedback
 
 
-def _get_llm(api_key: str, temperature: float) -> ChatOpenAI | None:
+def _get_llm(api_key: str, temperature: float) -> Any | None:
     """Create an LLM client when credentials are available."""
 
-    if not api_key:
+    if not api_key or ChatOpenAI is None:
         return None
 
     try:
