@@ -1,7 +1,16 @@
+import sys
+from pathlib import Path
+
 import streamlit as st
+
+SRC_ROOT = Path(__file__).resolve().parents[1]
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
 
 try:
     from .workflow import run_content_workflow
+except ImportError:
+    from content_production_team.workflow import run_content_workflow
 except Exception as exc:  # pragma: no cover - protects deployment startup
     run_content_workflow = None
     WORKFLOW_IMPORT_ERROR = exc
