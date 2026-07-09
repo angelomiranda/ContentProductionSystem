@@ -22,13 +22,15 @@ Steps:
 1. Push the repository to GitHub.
 2. Open Streamlit Community Cloud.
 3. Create a new app from the repository.
-4. Set the environment variable OPENAI_API_KEY in the app settings.
-5. Launch the deployment.
+4. Set the main file to `app.py`.
+5. Add the secret `OPENAI_API_KEY` in the app settings.
+6. Launch the deployment.
 
 Notes:
 
 - This is the fastest option.
 - It works well if you want the simplest path without managing servers.
+- The project includes [.streamlit/config.toml](../.streamlit/config.toml) so the app boots correctly in headless Cloud environments.
 
 ### 2. Render
 

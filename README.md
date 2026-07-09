@@ -86,6 +86,20 @@ streamlit run app.py
 
 The app will be available at the local Streamlit URL shown in the terminal.
 
+## Streamlit Community Cloud deployment
+
+This repository is already set up to deploy as a Streamlit app with the main entry point in [app.py](app.py).
+
+### Deploy steps
+
+1. Push the repository to GitHub.
+2. Open Streamlit Community Cloud and create a new app from the repository.
+3. Set the app main file to `app.py`.
+4. Add the secret `OPENAI_API_KEY` in the Streamlit Cloud app settings.
+5. Deploy the app.
+
+The app will start with the default Streamlit configuration in [.streamlit/config.toml](.streamlit/config.toml).
+
 ## Container deployment
 
 The project includes a Dockerfile for production-style container deployment.
