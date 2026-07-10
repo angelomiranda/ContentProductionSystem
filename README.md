@@ -149,9 +149,6 @@ The main dependencies are:
 - openai
 - python-dotenv
 
-## Recommended next steps
+## See a demo
 
-- add persistence for outputs and attempt history
-- add richer UI sections for comparing each draft version
-- extend the workflow with more specialized agents such as SEO review or fact checking
-- swap the control loop for LangGraph when you want a graph-native orchestration model
+[Deployed Content Production System App](contentsystemangelomiranda.streamlit.app)
