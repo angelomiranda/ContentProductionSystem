@@ -120,14 +120,14 @@ docker run --rm -p 8501:8501 -e OPENAI_API_KEY=your-api-key content-production-t
 
 The easiest deployment choices are:
 
-| Platform | Best for | Notes |
-| --- | --- | --- |
-| Streamlit Community Cloud | Fastest path to a public app | Best for simple demos and MVPs |
-| Render | Easy Docker or web service deployment | Good balance of simplicity and production readiness |
-| Railway | Fast deployment with simple secrets management | Very convenient for small teams |
-| Fly.io | Container-first deployment with global regions | Good if you want a containerized app with low friction |
-| Azure App Service | Enterprise-friendly deployment | Best if your organization already uses Azure |
-| AWS App Runner | Managed container hosting | Good for AWS-native deployments |
+| Platform                  | Best for                                       | Notes                                                  |
+| ------------------------- | ---------------------------------------------- | ------------------------------------------------------ |
+| Streamlit Community Cloud | Fastest path to a public app                   | Best for simple demos and MVPs                         |
+| Render                    | Easy Docker or web service deployment          | Good balance of simplicity and production readiness    |
+| Railway                   | Fast deployment with simple secrets management | Very convenient for small teams                        |
+| Fly.io                    | Container-first deployment with global regions | Good if you want a containerized app with low friction |
+| Azure App Service         | Enterprise-friendly deployment                 | Best if your organization already uses Azure           |
+| AWS App Runner            | Managed container hosting                      | Good for AWS-native deployments                        |
 
 For detailed instructions, see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
@@ -149,6 +149,10 @@ The main dependencies are:
 - openai
 - python-dotenv
 
+## Demo screenshots
+
+![Content Production Team demo](content-app-demo.png)
+
 ## See a demo
 
-[Deployed Content Production System App](contentsystemangelomiranda.streamlit.app)
+[Deployed Content Production System App](https://contentsystemangelomiranda.streamlit.app)
